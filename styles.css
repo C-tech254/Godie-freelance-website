@@ -215,27 +215,19 @@ nav{ display:flex; gap:22px; font-size:14px; font-weight:600; }
   .hero-navigation{
     flex-wrap:wrap;
     justify-content:center;
-    gap:10px;
+    gap:0;
     margin:12px 16px 0;
     padding:0;
   }
-  .menu-toggle{ display:inline-flex; }
-  .hero-navigation .header-cta{ padding:10px 15px; font-size:12px; }
+  .menu-toggle,
+  .hero-navigation .header-cta{ display:none; }
   .hero-navigation nav.site-nav{
-    display:none;
-    order:3;
-    flex:0 0 100%;
-    flex-direction:column;
-    gap:0;
-    margin:2px 0 0;
-    padding:8px 16px;
-    border:1px solid var(--navy-light);
-    border-radius:12px;
-    background:var(--cream);
-    box-shadow:0 8px 20px rgba(23,50,77,.08);
+    display:flex;
+    flex-wrap:wrap;
+    justify-content:center;
+    gap:4px 18px;
   }
-  .hero-navigation nav.site-nav.is-open{ display:flex; }
-  .hero-navigation nav.site-nav a{ padding:10px 4px; }
+  .hero-navigation nav.site-nav a{ padding:6px 0; }
 }
 
 
