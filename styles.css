@@ -52,28 +52,8 @@ img{ max-width:100%; display:block; } /* prevents any image from overflowing its
 
 
 /* ============================================================
-   HEADER  (announcement, photo, name, and nav links)
+   HEADER  (photo, name, and nav links)
    ============================================================ */
-.announcement{
-  min-height:36px;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  gap:12px;
-  padding:6px 20px;
-  background:#102A42;
-  color:#fff;
-  font-size:11px;
-  letter-spacing:.25px;
-  text-align:center;
-}
-.announcement a{
-  color:#91D4F5;
-  font-weight:600;
-  text-decoration:none;
-  white-space:nowrap;
-}
-.announcement a:hover{ color:#fff; }
 header{
   position:sticky; top:0; z-index:20; /* keeps header pinned while scrolling */
 }
@@ -177,24 +157,33 @@ header{
 .brand-name{ font-family:'Inter',sans-serif; font-weight:700; font-size:18px; letter-spacing:0; color:#fff; }
 .brand-name span{ display:block; font-family:'Inter',sans-serif; font-weight:500; font-size:12px; color:var(--navy-light); }
 nav{ display:flex; gap:22px; font-size:14px; font-weight:600; }
-nav a{ text-decoration:none; color:#fff; }
-nav a:hover{ color:var(--beige); }
+.hero-navigation{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap:24px;
+  max-width:1032px;
+  margin:12px auto 0;
+  padding:0 24px;
+}
+.hero-navigation nav.site-nav{ gap:22px; }
+.hero-navigation nav.site-nav a{ color:var(--navy-deep); text-decoration:none; }
+.hero-navigation nav.site-nav a:hover{ color:var(--gold); }
 .menu-toggle{
   display:none;
   align-items:center;
   gap:8px;
-  border:1px solid rgba(255,255,255,.55);
+  border:1px solid var(--navy-deep);
   border-radius:999px;
-  padding:8px 11px;
-  background:transparent;
+  padding:10px 15px;
+  background:var(--navy-deep);
   color:#fff;
   font:600 12px 'Inter',sans-serif;
   cursor:pointer;
 }
 .menu-toggle:focus-visible,
-.site-nav a:focus-visible,
-.header-cta:focus-visible,
-.announcement a:focus-visible{
+.hero-navigation .site-nav a:focus-visible,
+.header-cta:focus-visible{
   outline:2px solid #91D4F5;
   outline-offset:3px;
 }
@@ -205,9 +194,10 @@ nav a:hover{ color:var(--beige); }
   align-items:center;
   gap:8px;
   padding:10px 15px;
-  border:1px solid rgba(255,255,255,.55);
+  border:1px solid var(--navy-deep);
   border-radius:999px;
   color:#fff;
+  background:var(--navy-deep);
   font-size:12px;
   font-weight:600;
   text-decoration:none;
@@ -216,26 +206,36 @@ nav a:hover{ color:var(--beige); }
 }
 .header-cta:hover{ background:#fff; color:var(--navy-deep); }
 @media (max-width:640px){
-  .header-row{ margin:0 12px; padding:8px 10px; flex-wrap:wrap; row-gap:0; }
+  .header-row{ margin:0 12px; padding:8px 10px; }
   .header-photo-frame{ width:54px; height:54px; flex-basis:54px; }
   .header-photo-fallback{ width:48px; height:48px; }
   .brand{ gap:8px; }
   .brand-name{ font-size:14px; }
   .brand-name span{ font-size:10px; }
-  .header-cta{ padding:8px 10px; font-size:11px; }
+  .hero-navigation{
+    flex-wrap:wrap;
+    justify-content:center;
+    gap:10px;
+    margin:12px 16px 0;
+    padding:0;
+  }
   .menu-toggle{ display:inline-flex; }
-  nav.site-nav{
+  .hero-navigation .header-cta{ padding:10px 15px; font-size:12px; }
+  .hero-navigation nav.site-nav{
     display:none;
-    order:4;
-    flex:0 0 calc(100% + 20px);
+    order:3;
+    flex:0 0 100%;
     flex-direction:column;
     gap:0;
-    margin:8px -10px 0;
-    padding:6px 10px 10px;
-    border-top:1px solid rgba(255,255,255,.18);
+    margin:2px 0 0;
+    padding:8px 16px;
+    border:1px solid var(--navy-light);
+    border-radius:12px;
+    background:var(--cream);
+    box-shadow:0 8px 20px rgba(23,50,77,.08);
   }
-  nav.site-nav.is-open{ display:flex; }
-  nav.site-nav a{ padding:10px 4px; }
+  .hero-navigation nav.site-nav.is-open{ display:flex; }
+  .hero-navigation nav.site-nav a{ padding:10px 4px; }
 }
 
 
@@ -678,12 +678,8 @@ footer{
 footer .contact-line .ico.contact-icon-whatsapp svg{ width:27px; height:27px; stroke:none; }
 footer .contact-line .ico.contact-icon-whatsapp .whatsapp-bubble{ fill:#25D366; }
 footer .contact-line .ico.contact-icon-whatsapp .whatsapp-phone{ fill:#fff; }
-footer .contact-line .ico.contact-icon-email svg{ width:22px; height:22px; }
+footer .contact-line .ico.contact-icon-email svg{ width:22px; height:22px; stroke:none; }
 footer .contact-line .ico.contact-icon-phone svg{ stroke:#075E54; }
-footer .contact-line .ico.contact-icon-email .gmail-blue{ stroke:#4285F4; }
-footer .contact-line .ico.contact-icon-email .gmail-green{ stroke:#34A853; }
-footer .contact-line .ico.contact-icon-email .gmail-yellow{ stroke:#FBBC04; }
-footer .contact-line .ico.contact-icon-email .gmail-red{ stroke:#EA4335; }
 .contact-line a{ text-decoration:none; font-weight:600; color:var(--ink-dark); }
 
 /* The gold pill-shaped copyright badge at the very bottom */
