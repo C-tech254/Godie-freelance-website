@@ -168,26 +168,34 @@ nav.site-nav a:focus-visible{
 }
 @media (max-width:640px){
   header{ padding:0; }
-  .header-row{ width:100%; flex-direction:row; justify-content:space-between; gap:12px; padding:8px 10px; }
+  .header-row{ width:100%; flex-direction:row; justify-content:space-between; gap:8px; padding:10px; }
   .header-photo-frame{ width:54px; height:54px; flex-basis:54px; }
   .header-photo-fallback{ width:48px; height:48px; }
-  .brand{ gap:8px; }
-  .brand-name{ font-size:14px; }
-  .brand-name span{ font-size:10px; }
+  .brand{ gap:6px; }
+  .brand-name{ font-size:11px; white-space:nowrap; }
+  .brand-name span{ font-size:9px; }
   nav.site-nav{
-    display:grid;
-    grid-template-columns:repeat(2,auto);
-    justify-content:end;
-    gap:8px 12px;
-    font-size:11px;
+    flex-wrap:nowrap;
+    justify-content:flex-end;
+    gap:6px;
+    font-size:10px;
+  }
+  nav.site-nav a{
+    flex:0 0 auto;
+    white-space:nowrap;
   }
 }
 @media (min-width:641px) and (max-width:900px){
   .header-row{ width:auto; }
 }
 @media (max-width:380px){
-  .header-row{ gap:8px; padding:8px; }
-  nav.site-nav{ column-gap:8px; font-size:10px; }
+  .header-row{ gap:4px; padding:6px; }
+  .header-photo-frame{ width:48px; height:48px; flex-basis:48px; }
+  .header-photo-fallback{ width:42px; height:42px; }
+  .brand{ gap:4px; }
+  .brand-name{ font-size:10px; }
+  .brand-name span{ font-size:8px; }
+  nav.site-nav{ gap:4px; font-size:8.5px; }
 }
 
 
