@@ -1,0 +1,740 @@
+/* ============================================================
+   GODFREY MUTEMBEI — FREELANCE SERVICES STYLESHEET
+   Organized top to bottom in the same order sections appear
+   on the page: Root colors -> Header -> Hero -> About ->
+   Services -> Recruitment -> Footer.
+   ============================================================ */
+
+/* ---------- COLOR PALETTE ----------
+   Change a value here and it updates everywhere that variable
+   is used on the page. This is the fastest way to re-theme
+   the whole site without hunting through every rule. */
+:root{
+  --navy-deep:#17324D;
+  --navy:#EAF4FB;
+  --navy-light:#CBDFF0;
+  --beige:#C6E3F7;
+  --gold:#2274A5;
+  --bg:#F4F8FC;
+  --cream:#FBFDFF;
+  --ink:#171614;
+  --ink-soft:#43566B;
+  --ink-dark:#171614;
+  --ink-dark-soft:#393733;
+  --card:#FFFFFF;
+  --radius:10px;         /* small default corner radius */
+}
+
+/* ---------- BASE / RESET ---------- */
+*{ box-sizing:border-box; }
+html{ background:var(--bg); }
+body{
+  margin:0;
+  font-family:'Inter',sans-serif;
+  color:var(--ink);
+  background-color:var(--bg);
+  background-image:
+    radial-gradient(ellipse at 78% 12%,rgba(34,116,165,.08),transparent 42%),
+    radial-gradient(ellipse at 10% 72%,rgba(255,255,255,.7),transparent 46%),
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.025'/%3E%3C/svg%3E");
+  background-size:cover,cover,120px 120px;
+  line-height:1.6;
+}
+h1,h2,h3{
+  font-family:'Inter',sans-serif;
+  font-weight:600;
+  margin:0;
+  color:var(--ink-dark);
+}
+a{ color:inherit; }
+img{ max-width:100%; display:block; } /* prevents any image from overflowing its container */
+.wrap{ max-width:1080px; margin:0 auto; padding:0 24px; } /* the centered content container used inside most sections */
+
+
+/* ============================================================
+   HEADER  (announcement, photo, name, and nav links)
+   ============================================================ */
+.announcement{
+  min-height:36px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap:12px;
+  padding:6px 20px;
+  background:#102A42;
+  color:#fff;
+  font-size:11px;
+  letter-spacing:.25px;
+  text-align:center;
+}
+.announcement a{
+  color:#91D4F5;
+  font-weight:600;
+  text-decoration:none;
+  white-space:nowrap;
+}
+.announcement a:hover{ color:#fff; }
+header{
+  position:sticky; top:0; z-index:20; /* keeps header pinned while scrolling */
+}
+.header-row{
+  display:flex; align-items:center; justify-content:space-between;
+  padding:10px 24px; max-width:1032px; margin:0 auto;
+  background:var(--navy-deep);
+  border:1px solid rgba(23,50,77,.16);
+  border-top:0;
+  border-radius:0 0 16px 16px;
+}
+.brand{ display:flex; align-items:center; gap:12px; }
+
+/* --- IMAGE SIZE: header logo photo ---
+   Change width/height together to resize the small logo badge
+   in the top-left corner. Keep them equal for a circle. */
+.header-photo-frame{
+  position:relative;
+  isolation:isolate;
+  overflow:hidden;
+  width:76px;
+  height:76px;
+  flex:0 0 76px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  border-radius:50%;
+}
+.profile-light-trail{
+  position:absolute;
+  inset:0;
+  z-index:3;
+  width:100%;
+  height:100%;
+  overflow:visible;
+  pointer-events:none;
+}
+.profile-light-track,
+.profile-light-runner{
+  fill:none;
+  stroke:#53B7E8;
+}
+.profile-light-track{
+  stroke-width:1;
+  opacity:.35;
+}
+.profile-light-runner{
+  fill:none;
+  stroke:#D9F4FF;
+  stroke-width:1.5;
+  stroke-linecap:butt;
+  filter:none;
+  animation:photo-edge-light .006s linear infinite;
+}
+.profile-light-head{
+  --dash-offset:0;
+  stroke-width:1.5;
+  stroke-dasharray:150 850;
+  stroke-dashoffset:var(--dash-offset);
+}
+.profile-light-mid{
+  --dash-offset:150;
+  stroke-width:1;
+  stroke-dasharray:55 945;
+  stroke-dashoffset:var(--dash-offset);
+}
+.profile-light-tail{
+  --dash-offset:205;
+  stroke-width:.45;
+  stroke-dasharray:35 965;
+  stroke-dashoffset:var(--dash-offset);
+}
+@keyframes photo-edge-light{
+  from{ stroke-dashoffset:var(--dash-offset); }
+  to{ stroke-dashoffset:calc(var(--dash-offset) - 1000); }
+}
+.header-photo{
+  position:relative;
+  z-index:1;
+  width:100%;
+  height:100%;
+  max-width:none;
+  border-radius:50%;
+  object-fit:cover;
+  object-position:center 18%;
+  transform:scale(1.3);
+  border:2px solid var(--navy-deep);
+  background:var(--navy-deep);
+}
+/* Shown instead of .header-photo only if profile.jpeg fails to load (see script.js) */
+.header-photo-fallback{
+  width:68px; height:68px; border-radius:50%;
+  background:var(--navy-deep); color:var(--gold);
+  display:flex; align-items:center; justify-content:center;
+  font-family:'Fraunces',serif; font-weight:600; font-size:17px;
+  border:2px solid var(--navy-deep);
+}
+@media (prefers-reduced-motion:reduce){
+  .profile-light-runner{ animation:none; }
+}
+.brand-name{ font-family:'Inter',sans-serif; font-weight:700; font-size:18px; letter-spacing:0; color:#fff; }
+.brand-name span{ display:block; font-family:'Inter',sans-serif; font-weight:500; font-size:12px; color:var(--navy-light); }
+nav{ display:flex; gap:22px; font-size:14px; font-weight:600; }
+nav a{ text-decoration:none; color:#fff; }
+nav a:hover{ color:var(--beige); }
+.menu-toggle{
+  display:none;
+  align-items:center;
+  gap:8px;
+  border:1px solid rgba(255,255,255,.55);
+  border-radius:999px;
+  padding:8px 11px;
+  background:transparent;
+  color:#fff;
+  font:600 12px 'Inter',sans-serif;
+  cursor:pointer;
+}
+.menu-toggle:focus-visible,
+.site-nav a:focus-visible,
+.header-cta:focus-visible,
+.announcement a:focus-visible{
+  outline:2px solid #91D4F5;
+  outline-offset:3px;
+}
+.menu-icon{ display:grid; gap:3px; }
+.menu-icon span{ width:14px; height:1.5px; background:currentColor; }
+.header-cta{
+  display:inline-flex;
+  align-items:center;
+  gap:8px;
+  padding:10px 15px;
+  border:1px solid rgba(255,255,255,.55);
+  border-radius:999px;
+  color:#fff;
+  font-size:12px;
+  font-weight:600;
+  text-decoration:none;
+  white-space:nowrap;
+  transition:background .15s ease,color .15s ease;
+}
+.header-cta:hover{ background:#fff; color:var(--navy-deep); }
+@media (max-width:640px){
+  .header-row{ margin:0 12px; padding:8px 10px; flex-wrap:wrap; row-gap:0; }
+  .header-photo-frame{ width:54px; height:54px; flex-basis:54px; }
+  .header-photo-fallback{ width:48px; height:48px; }
+  .brand{ gap:8px; }
+  .brand-name{ font-size:14px; }
+  .brand-name span{ font-size:10px; }
+  .header-cta{ padding:8px 10px; font-size:11px; }
+  .menu-toggle{ display:inline-flex; }
+  nav.site-nav{
+    display:none;
+    order:4;
+    flex:0 0 calc(100% + 20px);
+    flex-direction:column;
+    gap:0;
+    margin:8px -10px 0;
+    padding:6px 10px 10px;
+    border-top:1px solid rgba(255,255,255,.18);
+  }
+  nav.site-nav.is-open{ display:flex; }
+  nav.site-nav a{ padding:10px 4px; }
+}
+
+
+/* ============================================================
+   HERO  (welcome banner directly under the header)
+   ============================================================ */
+.hero{
+  position:relative; overflow:hidden;
+  isolation:isolate;
+  background:
+    radial-gradient(ellipse at 86% 16%,rgba(83,183,232,.23),transparent 35%),
+    linear-gradient(118deg,#102A42 0%,var(--navy-deep) 58%,#204E70 100%);
+  margin:24px 24px 0;            /* the gap that makes this a "floating panel" */
+  border-radius:20px;            /* rounded corners of the panel — change this to resize the curve */
+  max-width:1032px; margin-left:auto; margin-right:auto;
+  padding:76px 24px 34px; color:#fff;
+  border:1px solid rgba(203,223,240,.42);
+  box-shadow:0 18px 44px rgba(23,50,77,.16);
+}
+.hero::after{
+  content:"";
+  position:absolute;
+  z-index:-1;
+  width:340px;
+  height:340px;
+  right:-120px;
+  bottom:-205px;
+  border:1px solid rgba(203,223,240,.2);
+  border-radius:50%;
+  box-shadow:0 0 0 32px rgba(203,223,240,.035),0 0 0 64px rgba(203,223,240,.025);
+}
+.hero-inner{ position:relative; z-index:1; max-width:820px; margin:0 auto; }
+.hero-kicker{
+  display:flex;
+  align-items:center;
+  gap:12px;
+  margin:0 0 24px;
+  color:#C6E3F7;
+  font-size:11px;
+  font-weight:600;
+  letter-spacing:1.6px;
+  text-transform:uppercase;
+}
+.hero-kicker span{
+  width:30px;
+  height:1px;
+  background:#53B7E8;
+}
+.hero h1{
+  max-width:790px;
+  font-size:clamp(42px,7vw,76px);
+  font-weight:700;
+  color:#fff;
+  margin:0 0 20px;
+  line-height:.99;
+  letter-spacing:-2.8px;
+  text-transform:uppercase;
+}
+.hero h1 em{
+  color:#91D4F5;
+  font-style:italic;
+}
+.hero p.lead{ max-width:590px; margin:0 0 30px; color:rgba(255,255,255,.78); font-size:16px; }
+.hero-actions{ display:flex; gap:14px; flex-wrap:wrap; }
+.hero .btn-gold{ background:#fff; color:var(--navy-deep); }
+.hero .btn-outline{ border-color:rgba(255,255,255,.5); background:transparent; color:#fff; }
+/* Buttons used across the whole page */
+.btn{
+  display:inline-block; padding:13px 28px; border-radius:8px;
+  font-weight:600; font-size:14px; letter-spacing:.2px; text-decoration:none;
+  transition:opacity .15s ease;
+}
+.btn:hover{ opacity:0.85; }
+.btn-gold{ background:var(--gold); color:#fff; }
+.btn-outline{ border:1.5px solid var(--navy-deep); background:var(--navy-deep); color:#fff; }
+
+
+/* ============================================================
+   SECTION SHELL  (shared spacing/heading rules used by
+   About, Services, and Recruitment)
+   ============================================================ */
+section{ padding:76px 0; } /* default top/bottom breathing room for every <section> */
+#about, #recruit{ border-top:1px solid var(--navy-light); }
+.section-head{ max-width:620px; margin:0 auto 44px; text-align:center; }
+.section-head h2, .about-copy h3{
+  font-family:'Inter',sans-serif;
+  font-size:28px;
+  font-weight:600;
+  line-height:1.25;
+  letter-spacing:0;
+}
+.section-head h2{ margin-bottom:12px; }
+.section-head p{ color:var(--ink-soft); font-size:15px; }
+
+/* ============================================================
+   FAQ
+   ============================================================ */
+.faq-section{
+  max-width:1032px;
+  margin:24px auto;
+  padding:76px 0;
+  background:var(--navy);
+  border:1px solid var(--navy-light);
+  border-radius:20px;
+  box-shadow:0 12px 32px rgba(23,50,77,.07);
+}
+.faq-list{
+  display:grid;
+  gap:12px;
+  max-width:820px;
+  margin:0 auto;
+}
+.faq-item{
+  overflow:hidden;
+  background:rgba(255,255,255,.82);
+  border:1px solid var(--navy-light);
+  border-radius:12px;
+  box-shadow:0 4px 14px rgba(23,50,77,.035);
+  transition:border-color .18s ease,box-shadow .18s ease,background .18s ease;
+}
+.faq-item:hover,
+.faq-item[open]{
+  background:#fff;
+  border-color:rgba(34,116,165,.48);
+  box-shadow:0 8px 20px rgba(23,50,77,.08);
+}
+.faq-item summary{
+  position:relative;
+  display:flex;
+  align-items:center;
+  min-height:66px;
+  padding:16px 68px 16px 20px;
+  color:var(--ink-dark);
+  font-size:15px;
+  font-weight:600;
+  line-height:1.45;
+  cursor:pointer;
+  list-style:none;
+  transition:color .18s ease;
+}
+.faq-item summary::-webkit-details-marker{ display:none; }
+.faq-item summary::after{
+  content:"+";
+  position:absolute;
+  right:16px;
+  top:50%;
+  display:grid;
+  width:32px;
+  height:32px;
+  place-items:center;
+  border:1px solid var(--navy-light);
+  border-radius:50%;
+  background:var(--cream);
+  color:var(--gold);
+  font-size:20px;
+  font-weight:500;
+  transform:translateY(-50%);
+  transition:transform .18s ease,background .18s ease,color .18s ease;
+}
+.faq-item[open] summary{ color:var(--gold); }
+.faq-item[open] summary::after{
+  content:"−";
+  background:var(--gold);
+  border-color:var(--gold);
+  color:#fff;
+  transform:translateY(-50%) rotate(180deg);
+}
+.faq-item summary:focus-visible{
+  outline:2px solid var(--gold);
+  outline-offset:-3px;
+}
+.faq-item p{
+  max-width:720px;
+  margin:0;
+  padding:0 68px 20px 20px;
+  color:var(--ink-soft);
+  font-size:14px;
+  line-height:1.75;
+}
+@media (prefers-reduced-motion:reduce){
+  .faq-item,
+  .faq-item summary,
+  .faq-item summary::after{ transition:none; }
+}
+
+
+/* ============================================================
+   ABOUT  (bio section with your photo)
+   ============================================================ */
+.about-grid{
+  display:grid; grid-template-columns:minmax(0,0.9fr) minmax(0,1.1fr); gap:clamp(36px,6vw,72px); align-items:center;
+}
+@media (max-width:760px){ .about-grid{ grid-template-columns:1fr; } } /* stacks on mobile */
+
+/* --- IMAGE SIZE: About section photo frame ---
+   This box is a perfect square (aspect-ratio:1/1) that scales
+   with the column width. To make the photo itself bigger,
+   widen the "1fr 1.3fr" ratio above (e.g. change to "1fr 1fr"),
+   or set a max-width on .about-photo below. */
+.about-photo{
+  position:relative;
+  aspect-ratio:1/1;              /* keeps the frame perfectly square at any size */
+  border-radius:var(--radius);   /* corner rounding of the photo frame */
+  background:var(--navy);
+  border:1px solid var(--navy-light);
+}
+.about-photo-window{
+  position:absolute;
+  inset:3px;
+  overflow:hidden;
+  border-radius:7px;
+  background:var(--navy);
+  /* NOTE: no padding here on purpose — padding would shrink the image
+     inward and leave a gap around it. If you need spacing for the
+     placeholder text (before a photo is added), that's handled by
+     .photo-placeholder below instead. */
+}
+.about-photo img{
+  position:relative;
+  z-index:1;
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  object-position:center 20%;
+}
+/* Shown instead of the photo only if profile.jpeg fails to load (see script.js) */
+.photo-placeholder{
+  width:100%; height:100%;
+  display:flex; align-items:center; justify-content:center;
+  padding:20px; text-align:center;
+  color:var(--gold); font-family:'Fraunces',serif; font-weight:600; font-size:15px;
+}
+
+.about-copy{ text-align:left; }
+.about-copy h3{ margin-bottom:6px; color:var(--ink-dark); }
+.about-copy .role{ color:var(--gold); font-weight:600; font-size:14px; margin-bottom:16px; }
+.about-copy p{ color:var(--ink-soft); margin-bottom:14px; }
+.about-copy p:last-child{ margin-bottom:0; }
+.pull-quote{
+  font-family:'Inter',sans-serif; font-style:normal; font-weight:600;
+  font-size:18px; line-height:1.5; color:var(--ink-dark);
+  margin-bottom:20px;
+}
+.partner-badge{
+  display:inline-flex; align-items:center; gap:10px;
+  background:var(--navy); border:1px solid var(--navy-light); border-radius:10px;
+  padding:10px 16px; font-size:13px; font-weight:600; color:var(--ink-dark);
+  margin-top:6px;
+}
+.partner-badge .dot{ width:8px; height:8px; border-radius:50%; background:var(--gold); }
+
+
+/* ============================================================
+   SERVICES  (the 4 pricing cards: Transcription, Translation,
+   Academic Writing, Data Entry)
+   ============================================================ */
+.services{
+  background:var(--navy);
+  margin:24px; border-radius:20px;   /* rounded floating panel, same style as the hero */
+  max-width:1032px; margin-left:auto; margin-right:auto;
+  padding:80px 0;
+  border:1px solid var(--navy-light);
+  box-shadow:0 12px 32px rgba(23,50,77,.07);
+}
+.training{
+  background:var(--navy);
+  margin:24px; border-radius:20px;
+  max-width:1032px; margin-left:auto; margin-right:auto;
+  padding:80px 0;
+  border:1px solid var(--navy-light);
+  box-shadow:0 12px 32px rgba(23,50,77,.07);
+}
+.service-card.training-card{ max-width:620px; margin:0 auto; padding:32px; text-align:center; align-items:center; }
+.training-cta{ margin-top:20px; }
+.training-card h3{ font-size:20px; margin-bottom:10px; }
+.training-card p.desc{ font-size:15px; min-height:0; margin-bottom:4px; }
+.training-detail{ color:var(--ink-soft); font-size:14px; line-height:1.7; margin:0 0 14px; }
+.training-card .price-row{ width:100%; margin-top:0; text-align:center; }
+.training-card .price-row .price-kes{ font-size:22px; }
+.training-card .training-cta{
+  align-self:center;
+  width:auto;
+  margin-top:14px;
+  padding:10px 18px;
+  font-size:13px;
+}
+.service-grid{
+  display:grid; grid-template-columns:repeat(4,minmax(0,1fr)); gap:20px; align-items:stretch;
+}
+@media (max-width:900px){ .service-grid{ grid-template-columns:repeat(2,1fr); } } /* 2 columns on tablet */
+@media (max-width:520px){ .service-grid{ grid-template-columns:1fr; } }           /* 1 column on phone */
+
+.service-card{
+  position:relative;
+  display:flex; flex-direction:column;
+  background:var(--card);
+  border:2px solid var(--tier-color, var(--navy-light)); /* colored border comes from the tier class below */
+  border-radius:12px;
+  padding:24px 20px; text-align:left; overflow:hidden;
+  transition:transform .2s ease, box-shadow .2s ease, border-color .2s ease;
+}
+.service-card:hover,
+.service-card:focus-within{
+  transform:translateY(-5px);
+  border-color:var(--gold);
+  box-shadow:0 12px 24px rgba(23,50,77,.12);
+}
+@media (hover:none){
+  .service-card:hover,
+  .service-card:focus-within{ transform:none; box-shadow:none; }
+}
+@media (prefers-reduced-motion:reduce){
+  .service-card{ transition:none; }
+}
+
+/* Tier colors — each service card gets one of these classes in the HTML
+   (tier-bronze / tier-silver / tier-gold / tier-platinum). Change the
+   hex codes here to change all four cards' accent colors at once. */
+.tier-bronze{ --tier-color:#8B674C; }
+.tier-silver{ --tier-color:#6D8296; }
+.tier-gold{ --tier-color:#2274A5; }
+.tier-platinum{ --tier-color:#17324D; }
+
+.tier-badge{
+  position:absolute; top:16px; right:18px;
+  font-size:11.5px; font-weight:600;   color:var(--tier-color,var(--navy-deep));
+  padding:3px 10px; border-radius:999px;
+  background:var(--cream);
+  border:1px solid var(--tier-color,var(--navy-light));
+}
+
+/* --- ICON SIZE: small square icon at the top of each service card --- */
+.service-icon{
+  width:46px; height:46px; border-radius:10px;
+  background:var(--cream);
+  border:1px solid var(--tier-color,var(--gold));
+  display:flex; align-items:center; justify-content:center; margin-bottom:16px;
+}
+.service-icon svg{ width:24px; height:24px; stroke:var(--navy-deep); }
+
+.service-card h3{ font-size:17px; margin-bottom:6px; color:var(--ink-dark); }
+.service-card p.desc{ color:var(--ink-soft); font-size:13.5px; margin-bottom:16px; min-height:52px; }
+.price-row{ border-top:1px dashed var(--navy-light); padding-top:12px; margin-top:auto; }
+.price-row .price-kes{ font-family:'Fraunces',serif; font-weight:600; font-size:16px; color:var(--tier-color,var(--gold)); }
+.price-row .price-usd{ font-size:12.5px; color:var(--ink-soft); }
+.services-cta{ text-align:center; margin-top:36px; }
+
+
+/* ============================================================
+   RECRUITMENT  ("Join my team" box)
+   ============================================================ */
+.recruit{
+  background:var(--navy); color:var(--ink-dark);
+  border-radius:20px; border:1px solid var(--navy-light);
+  margin:0 24px; padding:52px 40px;
+  max-width:1032px; margin-left:auto; margin-right:auto;
+  box-shadow:0 12px 32px rgba(23,50,77,.07);
+}
+.recruit-inner{ max-width:1080px; margin:0 auto; }
+.recruit .section-head h2, .recruit .section-head p{ color:var(--ink-dark); }
+.recruit .section-head p{ color:var(--ink-soft); }
+
+.recruit-figures{ display:grid; grid-template-columns:1fr; gap:16px; margin-bottom:32px; }
+.figure-box{
+  background:rgba(34,116,165,.06); border:1px solid rgba(34,116,165,.24);
+  border-radius:12px; padding:20px; text-align:center; max-width:340px; margin:0 auto;
+}
+.figure-box .label{ font-size:13px; color:var(--ink-soft); margin-bottom:6px; }
+.figure-box .value{ font-family:'Fraunces',serif; font-weight:600; font-size:21px; color:var(--gold); }
+.figure-box .value small{ display:block; font-size:12px; color:var(--ink-soft); font-weight:500; margin-top:2px; }
+
+/* the 4 joining-fee tier cards (Bronze/Silver/Gold/Platinum) */
+.recruit-tiers{ display:grid; grid-template-columns:repeat(3,1fr); gap:14px; margin-bottom:28px; }
+@media (max-width:700px){ .recruit-tiers{ grid-template-columns:1fr; } }
+.recruit-tier{
+  background:rgba(252,251,248,.88);
+  border:1px solid var(--navy-light);
+  border-top:4px solid var(--tier-color); /* reuses the same tier colors defined in the Services section */
+  border-radius:10px; padding:18px 12px; text-align:center;
+  transition:border-color .15s ease;
+}
+.recruit-tier:hover{ border-color:var(--tier-color); }
+.recruit-tier .rt-tier{ font-size:11px; font-weight:600; letter-spacing:.2px; color:var(--tier-color); margin-bottom:8px; }
+.recruit-tier .rt-label{ font-size:13px; color:var(--ink-soft); margin-bottom:10px; min-height:34px; }
+.recruit-tier .rt-price{ font-family:'Fraunces',serif; font-weight:600; font-size:22px; color:var(--ink-dark); }
+.recruit-note{ text-align:center; color:var(--ink-soft); font-size:13px; margin:-16px 0 28px; }
+
+.benefits{
+  list-style:none; padding:0; margin:0 0 32px;
+  display:grid; grid-template-columns:1fr 1fr; gap:12px 24px;
+}
+@media (max-width:600px){ .benefits{ grid-template-columns:1fr; } }
+.benefits li{ display:flex; align-items:center; gap:10px; font-size:14.5px; }
+.benefits li .check{
+  width:20px; height:20px; border-radius:50%; background:var(--gold);
+  display:flex; align-items:center; justify-content:center; flex-shrink:0;
+}
+.benefits li .check svg{ width:11px; height:11px; stroke:var(--navy-deep); }
+.recruit-cta{ text-align:center; }
+
+
+/* ============================================================
+   FOOTER  (Get in touch, Services list, Partner note, copyright)
+   ============================================================ */
+footer{
+  background:var(--navy);
+  margin:0 24px 24px; border-radius:20px; overflow:hidden;
+  max-width:1032px; margin-left:auto; margin-right:auto;
+  padding:56px 0 0;
+  border:1px solid var(--navy-light);
+  box-shadow:0 12px 32px rgba(23,50,77,.08);
+}
+.contact-grid{
+  display:flex; flex-direction:column; align-items:center; gap:28px;
+  width:min(100%,360px); max-width:100%; margin:0 auto 28px;
+  text-align:left;
+}
+.contact-grid > div{ width:100%; max-width:100%; }
+.contact-grid h4{
+  margin:0 0 16px;
+  color:var(--ink-dark);
+  font-family:'Inter',sans-serif;
+  font-size:28px;
+  font-weight:600;
+  line-height:1.3;
+  letter-spacing:0;
+  text-align:left;
+}
+.contact-line{ display:flex; align-items:center; justify-content:flex-start; gap:10px; margin-bottom:8px; font-size:14.5px; }
+.contact-note{ margin:0; color:var(--ink-soft); font-size:14.5px; }
+
+/* --- ICON SIZE: small square badge behind each contact icon --- */
+.contact-line .ico{
+  width:32px; height:32px; border-radius:8px; background:var(--cream);
+  border:1px solid var(--navy-light); display:flex; align-items:center; justify-content:center; flex-shrink:0;
+}
+.contact-line .ico svg{ width:19px; height:19px; stroke:var(--gold); }
+.contact-line .ico-dot{ background:transparent; border:none; }
+.contact-line .ico-dot .dot{ width:9px; height:9px; border-radius:50%; background:var(--gold); display:block; }
+footer .contact-line .ico.contact-icon-whatsapp svg{ width:27px; height:27px; stroke:none; }
+footer .contact-line .ico.contact-icon-whatsapp .whatsapp-bubble{ fill:#25D366; }
+footer .contact-line .ico.contact-icon-whatsapp .whatsapp-phone{ fill:#fff; }
+footer .contact-line .ico.contact-icon-email svg{ width:22px; height:22px; }
+footer .contact-line .ico.contact-icon-phone svg{ stroke:#075E54; }
+footer .contact-line .ico.contact-icon-email .gmail-blue{ stroke:#4285F4; }
+footer .contact-line .ico.contact-icon-email .gmail-green{ stroke:#34A853; }
+footer .contact-line .ico.contact-icon-email .gmail-yellow{ stroke:#FBBC04; }
+footer .contact-line .ico.contact-icon-email .gmail-red{ stroke:#EA4335; }
+.contact-line a{ text-decoration:none; font-weight:600; color:var(--ink-dark); }
+
+/* The gold pill-shaped copyright badge at the very bottom */
+footer p.copy{
+  display:inline-block; margin:0 auto;
+  background:var(--beige); color:var(--navy-deep);
+  font-size:12.5px; font-weight:600; letter-spacing:.2px;
+  padding:10px 22px; border-radius:999px;
+}
+.footer-bottom{
+  background:var(--navy);
+  border-top:1px solid var(--navy-light);
+  padding:20px 24px; margin-top:28px;
+  text-align:center;
+  color:var(--ink-dark);
+}
+
+.services,
+.training,
+.recruit,
+footer{
+  background:var(--navy);
+  border:1px solid var(--navy-light);
+  border-radius:20px;
+  box-shadow:0 12px 32px rgba(23,50,77,.07);
+}
+
+@media (max-width:700px){
+  .contact-grid{ gap:24px; }
+}
+
+@media (max-width:760px){
+  section{ padding:60px 0; }
+  .about-grid{ grid-template-columns:1fr; gap:32px; }
+  .about-photo{ max-width:480px; width:100%; margin:0 auto; }
+  .about-copy{ text-align:center; }
+  .hero{ padding:56px 0; }
+  .services, .training{ padding:60px 0; }
+  .faq-section{ padding:60px 0; }
+}
+
+@media (max-width:520px){
+  .hero{ margin:16px 16px 0; padding:44px 0; }
+  .hero h1{ font-size:clamp(28px,8vw,36px); }
+  .hero p.lead{ font-size:15px; }
+  .hero-actions{ flex-direction:column; align-items:stretch; }
+  .hero-actions .btn{ text-align:center; }
+  .services, .training{ margin:16px; padding:48px 0; }
+  .faq-section{ margin:16px; padding:48px 0; }
+  .section-head{ margin-bottom:32px; }
+  .section-head h2, .about-copy h3, .contact-grid h4{ font-size:26px; }
+  .recruit{ padding:40px 24px; }
+  footer{ margin:0 16px 16px; padding-top:44px; }
+}

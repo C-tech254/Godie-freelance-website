@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<!--
+  Still to add:
+  profile.jpeg -> Godfrey's portrait used in the header avatar and About photo
+  Prices      -> double-check all the rates match what you want to charge
+-->
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Godfrey Mutembei: Freelance Services & Training</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+<script src="script.js"></script>
+
+</head>
+<body>
+
+<div class="announcement">
+  <span>Freelance services & practical remote-work mentorship</span>
+  <a href="#training">Explore training <span aria-hidden="true">→</span></a>
+</div>
+
+<header>
+  <div class="header-row">
+    <div class="brand">
+      <!-- Godfrey's portrait is saved as profile.jpeg in this folder -->
+      <div class="header-photo-frame">
+        <img class="header-photo" src="profile.jpeg" alt="Godfrey Mutembei"
+             onerror="headerPhotoFallback(this)">
+        <svg class="profile-light-trail" viewBox="0 0 100 100" aria-hidden="true" focusable="false">
+          <circle class="profile-light-track" cx="50" cy="50" r="48"></circle>
+          <circle class="profile-light-runner profile-light-head" cx="50" cy="50" r="48" pathLength="1000"></circle>
+          <circle class="profile-light-runner profile-light-mid" cx="50" cy="50" r="48" pathLength="1000"></circle>
+          <circle class="profile-light-runner profile-light-tail" cx="50" cy="50" r="48" pathLength="1000"></circle>
+        </svg>
+      </div>
+      <div class="brand-name">Godfrey Mutembei<span>Freelance Services</span></div>
+    </div>
+    <nav id="primary-navigation" class="site-nav" aria-label="Main navigation">
+      <a href="#services">Services</a>
+      <a href="#training">Training</a>
+      <a href="#about">About</a>
+      <a href="#contact">Contact</a>
+    </nav>
+    <button class="menu-toggle" type="button" aria-controls="primary-navigation" aria-expanded="false">
+      <span class="menu-icon" aria-hidden="true"><span></span><span></span><span></span></span>
+      <span class="menu-label">Menu</span>
+    </button>
+    <a class="header-cta" href="#services">Services <span aria-hidden="true">→</span></a>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="wrap">
+    <div class="hero-inner">
+      <p class="hero-kicker">Freelance services <span></span> Training & mentorship</p>
+      <h1>Reliable freelance support.<br><em>Real skills. Better work.</em></h1>
+      <p class="lead">I'm Godfrey Mutembei. Explore transcription, translation, academic writing, data entry, and practical guidance for your remote-work journey.</p>
+      <div class="hero-actions">
+        <a class="btn btn-gold" href="#contact">Contact Godfrey</a>
+        <a class="btn btn-outline" href="#services">Explore services <span aria-hidden="true">→</span></a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="about">
+  <div class="wrap about-grid">
+    <div class="about-photo">
+      <div class="about-photo-window">
+        <img src="profile.jpeg" alt="Godfrey Mutembei"
+             onerror="aboutPhotoFallback(this)">
+      </div>
+    </div>
+    <div class="about-copy">
+      <h3>About Godfrey</h3>
+      <p class="role">Digital Marketer & Freelance Trainer</p>
+      <p class="pull-quote">Welcome to your remote work journey.</p>
+      <p>I am a Digital Marketer and Freelance Trainer dedicated to helping ambitious individuals build profitable, flexible online careers. I demystify remote work through step-by-step beginner roadmaps, actionable strategies, and practical training in high-demand services, including transcription, data entry, translation, and digital marketing.</p>
+      <p>Whether you are starting from scratch or looking to expand your freelance offerings, you will find verified service pathways, workflow guides, and proven resources to help you gain confidence, secure clients, and start earning online.</p>
+    </div>
+  </div>
+</section>
+
+<section id="services" class="services">
+  <div class="wrap">
+    <div class="section-head">
+      <h2>Services & pricing</h2>
+      <p>Straightforward rates, no hidden charges. Reach out for guidance or a project-specific quote.</p>
+    </div>
+    <div class="service-grid">
+
+      <div class="service-card tier-bronze" id="transcription">
+        <h3>Transcription</h3>
+        <p class="desc">Audio and video turned into clean, accurate text, covering interviews, lectures and meetings.</p>
+        <div class="price-row">
+          <div class="price-kes">KES 300 to 600</div>
+          <div class="price-usd">$3 to $5 per task</div>
+        </div>
+      </div>
+
+      <div class="service-card tier-silver" id="translation">
+        <h3>Translation</h3>
+        <p class="desc">Documents and content translated with the meaning and tone kept intact.</p>
+        <div class="price-row">
+          <div class="price-kes">KES 300 to 800</div>
+          <div class="price-usd">$3 to $5 per project</div>
+        </div>
+      </div>
+
+      <div class="service-card tier-gold" id="academic-writing">
+        <h3>Academic Writing</h3>
+        <p class="desc">Well-researched, properly referenced essays, reports and assignments.</p>
+        <div class="price-row">
+          <div class="price-kes">KES 300 to 600</div>
+          <div class="price-usd">$3 to $5 per page</div>
+        </div>
+      </div>
+
+      <div class="service-card tier-platinum" id="data-entry">
+        <h3>Data Entry</h3>
+        <p class="desc">Fast, accurate entry and cleanup of spreadsheets, forms and databases.</p>
+        <div class="price-row">
+          <div class="price-kes">KES 1,000 to 3,500</div>
+          <div class="price-usd">$8 to $29 per task</div>
+        </div>
+      </div>
+
+    </div>
+    <div class="services-cta">
+      <a class="btn btn-gold" href="#contact">Ask about services</a>
+    </div>
+  </div>
+</section>
+
+<section id="training" class="training">
+  <div class="wrap">
+    <div class="section-head">
+      <h2>Training & mentorship</h2>
+      <p>Get practical guidance to build your freelance skills and take your next steps in remote work.</p>
+    </div>
+    <div class="service-card tier-gold training-card">
+      <h3>Freelance training & mentorship</h3>
+      <p class="training-detail">Build your freelance skills with practical guidance and mentorship in transcription, translation, academic writing, or data entry. We’ll discuss the service you want to focus on, the skills you need, and helpful steps for getting started. Ready to take the next step? Get in touch and let’s plan a learning path around your freelance goals.</p>
+      <div class="price-row">
+        <div class="price-kes">$20</div>
+        <div class="price-usd">Message to ask about the training</div>
+      </div>
+      <a class="btn btn-gold training-cta" href="#contact">Ask about training</a>
+    </div>
+  </div>
+</section>
+
+<section id="recruit">
+  <div class="wrap">
+    <div class="recruit">
+      <div class="section-head">
+        <h2>Join my team</h2>
+        <p>Select a lifetime membership plan and get started with a service of your choice. You also get personalised training and mentorship sessions with me.</p>
+      </div>
+      <div class="recruit-tiers">
+        <div class="recruit-tier tier-bronze">
+          <div class="rt-tier">Bronze</div>
+          <div class="rt-label">Transcription & Translation</div>
+          <div class="rt-price">$35</div>
+        </div>
+        <div class="recruit-tier tier-gold">
+          <div class="rt-tier">Gold</div>
+          <div class="rt-label">Academic Writing</div>
+          <div class="rt-price">$47</div>
+        </div>
+        <div class="recruit-tier tier-platinum">
+          <div class="rt-tier">Platinum</div>
+          <div class="rt-label">Data Entry</div>
+          <div class="rt-price">$87</div>
+        </div>
+      </div>
+      <ul class="benefits">
+        <li><span class="check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M5 13c2 3 4 5 6 7 3-6 5-10 8-15"/></svg></span> Training & mentorship</li>
+        <li><span class="check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M5 13c2 3 4 5 6 7 3-6 5-10 8-15"/></svg></span> Access to freelance jobs</li>
+        <li><span class="check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M5 13c2 3 4 5 6 7 3-6 5-10 8-15"/></svg></span> Job sourcing on your behalf</li>
+        <li><span class="check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M5 13c2 3 4 5 6 7 3-6 5-10 8-15"/></svg></span> Tools & resources provided for every service</li>
+      </ul>
+      <div class="recruit-cta">
+        <a class="btn btn-gold" href="https://eaglewebcommerce.com/register/godii606" target="_blank" rel="noopener noreferrer">Register with EagleWeb</a>
+        <a class="btn btn-outline" href="#contact">Ask about joining</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="faqs" class="faq-section">
+  <div class="wrap">
+    <div class="section-head">
+      <h2>FAQs</h2>
+      <p>Quick information about services, pricing, and training.</p>
+    </div>
+    <div class="faq-list">
+      <details class="faq-item">
+        <summary>What services are available?</summary>
+        <p>Transcription, translation, academic writing, and data entry are listed on the services section, alongside freelance training and mentorship.</p>
+      </details>
+      <details class="faq-item">
+        <summary>How is the price for a project determined?</summary>
+        <p>The service cards show the current listed price ranges. The final price can be confirmed after the task scope and requirements are discussed.</p>
+      </details>
+      <details class="faq-item">
+        <summary>What should I include when asking about a project?</summary>
+        <p>Include the service you need, a short description, the expected scope, any important instructions, and your preferred deadline.</p>
+      </details>
+      <details class="faq-item">
+        <summary>What does freelance training cover?</summary>
+        <p>Training and mentorship can focus on transcription, translation, academic writing, or data entry. The training section lists the fee and provides more detail.</p>
+      </details>
+    </div>
+  </div>
+</section>
+
+<footer id="contact">
+  <div class="wrap">
+    <div class="contact-grid">
+      <div>
+        <h4>Services</h4>
+        <div class="contact-line" style="color:var(--ink-soft);font-weight:500;"><span class="ico ico-dot"><span class="dot"></span></span>Transcription</div>
+        <div class="contact-line" style="color:var(--ink-soft);font-weight:500;"><span class="ico ico-dot"><span class="dot"></span></span>Translation</div>
+        <div class="contact-line" style="color:var(--ink-soft);font-weight:500;"><span class="ico ico-dot"><span class="dot"></span></span>Academic Writing</div>
+        <div class="contact-line" style="color:var(--ink-soft);font-weight:500;"><span class="ico ico-dot"><span class="dot"></span></span>Data Entry</div>
+        <div class="contact-line" style="color:var(--ink-soft);font-weight:500;"><span class="ico ico-dot"><span class="dot"></span></span>Training & mentorship</div>
+      </div>
+      <div>
+        <h4>Get in touch</h4>
+        <div class="contact-line"><span class="ico contact-icon-whatsapp"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path class="whatsapp-bubble" d="M12.04 2a9.94 9.94 0 0 0-8.57 15.01L2 22l5.16-1.35A9.94 9.94 0 1 0 12.04 2Z"/><path class="whatsapp-phone" d="M16.71 13.95c-.27-.14-1.59-.78-1.84-.87-.25-.09-.43-.14-.61.14-.18.27-.7.87-.86 1.05-.16.18-.32.2-.59.07-.27-.14-1.14-.42-2.18-1.34-.81-.72-1.35-1.61-1.51-1.88-.16-.27-.02-.42.12-.56.12-.12.27-.32.41-.48.14-.16.18-.27.27-.45.09-.18.05-.34-.02-.48-.07-.14-.61-1.47-.84-2.01-.22-.53-.45-.46-.61-.47l-.52-.01c-.18 0-.48.07-.73.34-.25.27-.96.94-.96 2.29 0 1.35.98 2.65 1.12 2.83.14.18 1.93 2.95 4.68 4.14.65.28 1.16.45 1.56.58.65.21 1.24.18 1.71.11.52-.08 1.59-.65 1.82-1.28.23-.63.23-1.17.16-1.28-.07-.11-.25-.18-.52-.32Z"/></svg></span><a href="https://wa.me/254114285403" target="_blank" rel="noopener noreferrer">WhatsApp: 0114285403</a></div>
+        <div class="contact-line"><span class="ico contact-icon-phone"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.4 19.4 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 2 .7 2.9a2 2 0 0 1-.5 2.1L8 9.9a16 16 0 0 0 6 6l1.2-1.3a2 2 0 0 1 2.1-.5c.9.3 1.9.6 2.9.7a2 2 0 0 1 1.8 2.1Z"/></svg></span><a href="tel:0783079595">0783079595</a></div>
+        <div class="contact-line"><span class="ico contact-icon-email"><svg viewBox="0 0 24 24" fill="none" stroke-width="2.8" stroke-linecap="square" stroke-linejoin="round" aria-hidden="true" focusable="false"><path class="gmail-blue" d="M3.5 18V6.5"/><path class="gmail-red" d="m3.5 6.5 8.5 6.4 8.5-6.4"/><path class="gmail-yellow" d="M20.5 6.5V18"/><path class="gmail-green" d="M3.5 18h17"/></svg></span><a href="mailto:mutembeigodfrey409@gmail.com">mutembeigodfrey409@gmail.com</a></div>
+      </div>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p class="copy">&copy; 2026 Godfrey Mutembei. All rights reserved.</p>
+  </div>
+</footer>
+
+</body>
+</html>
