@@ -167,7 +167,8 @@ nav.site-nav a:focus-visible{
   outline-offset:3px;
 }
 @media (max-width:640px){
-  .header-row{ width:auto; flex-direction:row; justify-content:space-between; gap:12px; padding:8px 10px; }
+  header{ padding:0; }
+  .header-row{ width:100%; flex-direction:row; justify-content:space-between; gap:12px; padding:8px 10px; }
   .header-photo-frame{ width:54px; height:54px; flex-basis:54px; }
   .header-photo-fallback{ width:48px; height:48px; }
   .brand{ gap:8px; }
